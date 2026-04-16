@@ -4,7 +4,7 @@ Free MIT-licensed AI-guided interrogation skill for breaking into greenfield acc
 
 AccountHack helps account executives, SDRs, founders, and GTM operators pressure-test complex target accounts before outreach. Instead of starting with generic cold messaging, you run the skill inside Claude, ChatGPT, Gemini, Cursor, or another capable assistant and build a structured account brief first.
 
-Version 3 adds Trigger Radar, a LinkedIn Connections Co-Pilot, stronger verification safeguards, Stage `5.5 — Executive Narrative & Access Strategy`, the Earned Right Test, warm intro briefs, and a more explicit Account War Room output.
+Version 3.1 adds quality gates, anti-slop output rules, three-tier verification discipline, a completion status protocol, session pause/resume, focused sub-skills, and orchestration workflows. It also includes the v3 core: Trigger Radar, the LinkedIn Connections Co-Pilot, Stage `5.5 — Executive Narrative & Access Strategy`, the Earned Right Test, warm intro briefs, and the expanded Account War Room output.
 
 ## What It Does
 
@@ -106,10 +106,52 @@ AccountHack works best when you can provide or verify:
 
 If browsing or source material is not available, the run should treat company-specific claims as unverified hypotheses, not facts.
 
+## Focused Skills
+
+Don't always need a full run? AccountHack includes focused skills you can invoke independently:
+
+| Skill | What It Does | When to Use |
+|---|---|---|
+| **Quick Scan** | 5-minute triage: snapshot, triggers, top personas, go/no-go | Fast read before investing time in a full run |
+| **Trigger Radar** | Urgency signals + Why Now Score (1-10) | Check if an account is worth pursuing right now |
+| **Warm Path** | LinkedIn CSV analysis, internal intel, relationship mapping | Find who you know before going cold |
+| **Leadership Intel** | Executive deep dive, narrative, Earned Right Test, message drafts | Preparing to contact a specific executive |
+| **Account Review** | Quality audit of a completed War Room | Validate your research before going into the field |
+
+Each skill enforces the same guardrails as the full run — quality gates, anti-slop rules, and verification discipline.
+
+## Guardrails
+
+AccountHack v3.1 includes a structured guardrail system inspired by [gstack](https://github.com/garrytan/gstack):
+
+| Document | Purpose |
+|---|---|
+| [QUALITY_GATES.md](./guardrails/QUALITY_GATES.md) | Stage-by-stage checkpoints. The AI must pass each before advancing. |
+| [VOICE.md](./guardrails/VOICE.md) | Anti-slop writing rules. Bans generic AI vocabulary. Enforces specificity. |
+| [VERIFICATION.md](./guardrails/VERIFICATION.md) | Three-tier verification (Verified / Inferred / Unverified). Source attribution. Escalation rules. |
+
+Every run ends with a Completion Status:
+```
+STATUS: DONE | DONE_WITH_CONCERNS | INCOMPLETE | BLOCKED
+VERIFICATION SCORE: [X]/10
+EARNED RIGHT TEST: PASSED | NOT YET PASSED
+```
+
 ## Repository Contents
 
-- [ACCOUNT_HACK.md](./ACCOUNT_HACK.md): the canonical public skill file
-- [SKILL.md](./SKILL.md): installable skill definition
+- [ACCOUNT_HACK.md](./ACCOUNT_HACK.md): the canonical full skill file (14-part system)
+- [SKILL.md](./SKILL.md): installable skill definition with routing rules
+- **guardrails/** — quality enforcement system
+  - [QUALITY_GATES.md](./guardrails/QUALITY_GATES.md): stage checkpoints
+  - [VOICE.md](./guardrails/VOICE.md): output quality rules
+  - [VERIFICATION.md](./guardrails/VERIFICATION.md): verification discipline
+- **skills/** — focused, independently-runnable skills
+  - [trigger-radar/](./skills/trigger-radar/SKILL.md): urgency scanning
+  - [warm-path/](./skills/warm-path/SKILL.md): warm path mapping
+  - [leadership-intel/](./skills/leadership-intel/SKILL.md): executive research & access
+  - [quick-scan/](./skills/quick-scan/SKILL.md): 5-minute account triage
+  - [account-review/](./skills/account-review/SKILL.md): War Room quality audit
+- **.agents/workflows/** — orchestration workflows for full runs, trigger-only scans, and warm-path-only runs
 - [agents/openai.yaml](./agents/openai.yaml): installer metadata
 - [LICENSE](./LICENSE): MIT license
 
