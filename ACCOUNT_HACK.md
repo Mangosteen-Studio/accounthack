@@ -1,5 +1,5 @@
 # AccountHack
-### The Greenfield Account Intelligence Skill — v3.0
+### The Greenfield Account Intelligence Skill — v3.1
 **Published by Yousuf Imran — Founder, Mangosteen Studio**
 *AI Product Lab for GTM*
 
@@ -9,9 +9,38 @@
 >
 > **How to use it:** Paste this entire file into Claude, ChatGPT, Grok, or any LLM. Then say: *"Run AccountHack on [Company Name]."* The AI will interrogate you stage by stage, generate specific research actions, synthesize everything live, and deliver a complete Account War Room + 30-day Execution OS.
 >
-> **New in v3.0:** Trigger Radar (Stage 0.5), AI Co-Pilot Mode, Why Now Score, urgency-tagged triggers, stronger verification discipline, Stage 5.5 Executive Narrative & Access Strategy, conditional executive drafts, warm intro briefs, and structured Account Wedge fields.
+> **New in v3.1:** Quality gates at every stage, anti-slop output rules, three-tier verification discipline, completion status protocol, session pause/resume. Plus everything from v3.0: Trigger Radar (Stage 0.5), AI Co-Pilot Mode, Why Now Score, urgency-tagged triggers, Stage 5.5 Executive Narrative & Access Strategy, conditional executive drafts, warm intro briefs, and structured Account Wedge fields.
 >
 > **Want this done for you automatically?** Sign up for the AI Chief of Staff for AEs → [icebreaker.tools](https://icebreaker.tools)
+
+---
+
+## GUARDRAILS — ENFORCED AT EVERY STAGE
+
+These rules are built into this file. They apply whether you're running AccountHack as an installed skill or as a standalone paste. No external files required.
+
+> **If running as an installed skill**, the full guardrail docs at `guardrails/QUALITY_GATES.md`, `guardrails/VOICE.md`, `guardrails/VERIFICATION.md`, and `guardrails/CRITIC.md` contain expanded guidance. Read those if available. If not, the rules below are self-contained.
+>
+> **`guardrails/CRITIC.md`** — runs as a hidden reasoning step after all research stages are complete, before rendering the final War Room. The Critic audits for slop, unverified claims, Earned Right Test score, and actionability. If it fails, a Refinement Loop (max 2 attempts) runs before output is delivered.
+
+### Output Quality Rules
+- **No generic output.** If a claim, hook, or recommendation could apply to any company, it is not good enough. Go deeper or mark it as a gap.
+- **No AI vocabulary.** Never use: leverage, utilize, comprehensive, robust, strategic alignment, holistic, synergy, cutting-edge, best-in-class, seamless integration, drive value, empower, delve, "it's worth noting," "in today's landscape." Replace with specifics or cut entirely.
+- **The Specificity Test.** Before outputting any claim: can you name a specific company, person, date, document, job posting, or data point? If no, either find the specific or tag it `[UNVERIFIED]`.
+- **The Competitor Test.** Before finalizing any stage output: would a competitor rep who spent 15 minutes on Google know this? If yes, the output is not good enough.
+
+### Verification Discipline
+- **Tier 1 — Verified:** Confirmed by AE input, pasted source material, or live tool access in this session. No tag needed.
+- **Tier 2 — Inferred:** Logical conclusion from verified data. Tag: `[INFERRED — based on: {source}]`.
+- **Tier 3 — Unverified:** From training knowledge or cannot be sourced. Tag: `[UNVERIFIED — confirm before use]`.
+- **Tool declaration:** At session start, state which tools you have (web search, pasted data, training knowledge). Never imply access you don't have.
+- **Escalation rule:** If you've tried to verify a claim 3 times without success, stop. Say what you tried, mark it UNVERIFIED, and generate the specific action for the AE to verify it.
+- **Never hallucinate specifics.** Do not invent names, titles, funding amounts, quotes, or financial figures.
+
+### Stage Advancement Rules
+- At every stage: ask the questions first, get the AE's answers, then generate research actions. Do not skip the interrogation.
+- Before advancing to the next stage, confirm: all questions asked, all actions generated, no blank sections, all claims sourced or tagged.
+- If a stage checkpoint is not satisfied, fix the gap before moving on.
 
 ---
 
@@ -593,8 +622,9 @@ Once the narrative is built, generate the ranked access plan for the identified 
 - This path is slower but has higher close rates when it works
 
 **Tier 4 — Direct outreach (earned right required)**
-- Only after passing the Earned Right Test
-- Generate: executive email (4 sentences max), LinkedIn DM (3 sentences max), and the warm intro brief if a connector exists
+- **HARD GATE:** Only available if the Earned Right Test has been passed in this session. If the Earned Right Test is NOT passed, Tier 4 is blocked — do not generate executive outreach drafts regardless of whether a warm path exists.
+- If passed: generate executive email (4 sentences max) and LinkedIn DM (3 sentences max)
+- If a warm intro connector exists, generate the warm intro brief alongside the direct drafts — but the connector brief is Tier 1-3 collateral, not a Tier 4 fallback
 
 ---
 
@@ -618,8 +648,9 @@ Why it's non-generic: [Would a competitor rep know this? Is it specific to this 
 If not yet passed: [Exact research actions needed before outreach is warranted]
 
 EXECUTIVE NARRATIVE
-[Only generate for the exec route selected above]
-Role: [Title]
+[Only generate if routing decision selected a C-suite target AND Earned Right Test passed]
+[If routing decision is "Not C-suite yet": state "Executive narrative deferred — building champion-level entry first. See research actions above for what's needed before executive engagement is warranted."]
+Role: [Title — only the single exec selected in routing decision, not multiple execs]
 Frame: [CEO-strategic / CTO-technical / CFO-financial / CRO-revenue / CMO-growth / CPO-product]
 Narrative: [3 paragraphs — their moment, the connection, the ask]
 What never to say: [3 specific phrases to avoid for this executive]
@@ -628,11 +659,12 @@ ACCESS PATH
 Tier 1 — Board/investor: [Path if exists + exact action / None]
 Tier 2 — Peer exec: [Path if exists + exact message to send / None]
 Tier 3 — Champion escalation: [Champion name/role + escalation script]
-Tier 4 — Direct outreach: [Only if Earned Right Test passed / Blocked if not]
+Tier 4 — Direct outreach: [BLOCKED — Earned Right Test not passed / UNLOCKED — insight: {the insight}]
 
 WARM INTRO BRIEF
 [Forwardable one-paragraph brief for the connector — paste-ready]
-[State "No warm path — use Tier 4 direct outreach" if no connector exists]
+[If no connector exists AND Earned Right Test passed: "No warm path identified — Tier 4 direct outreach is available (see Message Drafts)"]
+[If no connector exists AND Earned Right Test NOT passed: "No warm path identified AND Earned Right Test not passed — executive outreach is blocked. Complete the research actions above before any outreach to the primary target. Champion and technical buyer outreach (Tier 3) is available."]
 
 MESSAGE DRAFTS
 [See Section 8 — drafts generated conditionally based on Earned Right Test result]
@@ -779,9 +811,28 @@ Hook: Something you found by actually using their product or experiencing their 
 
 ---
 
+## POST-RESEARCH PROTOCOL — Internal Critic Audit
+*This is a hidden reasoning step. Run it internally before rendering the War Room. Do not show the audit log to the AE unless it fails and you are surfacing specific gaps.*
+
+Before rendering the Account War Room, run the internal Critic audit from `guardrails/CRITIC.md`. The four checks are:
+
+1. **Anti-Slop** — Scan the full draft for banned words and AI-breathless phrasing (VOICE.md).
+2. **Verification Integrity** — Calculate the Verification Score. Every executive name, financial figure, and trigger must be sourced or tagged. Score below 6.0 = block output.
+3. **Earned Right Test** — Score 1–10. Threshold: 8. Below 8 = do not generate executive outreach. Rewrite Stage 5.5 before proceeding.
+4. **Actionability** — Every action item in the 30-Day OS and Warm Path list must be specific and copy-paste ready. No placeholders.
+
+**If all checks pass:** Output `QC_PASSED` internally and proceed to the War Room.
+
+**If any check fails:** Enter the Refinement Loop.
+- Acknowledge which check failed and exactly which content failed it.
+- Return to the relevant stage, fix the specific section, and re-run the Critic on that section.
+- Maximum 2 loop attempts. If the draft fails a third time, output the War Room tagged `[STATUS: DONE_WITH_CONCERNS]` with a `CRITIC CONCERNS` block listing the unresolved gaps.
+
+---
+
 ## FINAL OUTPUT — The Account War Room
 
-*After completing all stages, synthesize everything into this deliverable. Build it live as the AE answers — don't wait until the end.*
+*After completing all stages and passing the Post-Research Protocol, synthesize everything into this deliverable. Build it live as the AE answers — don't wait until the end.*
 
 ---
 
@@ -839,7 +890,9 @@ Break into four explicit fields:
 Format: **Theme** — evidence from research (where you found it, what they said)
 
 **7. Executive Narrative & Access Path**
-Output the full Stage 5.5 summary here — routing decision, the insight, executive narratives per relevant exec, what never to say, ranked access path, and the Earned Right Test result. This section should be the most specific and researched section in the entire War Room.
+Output the full Stage 5.5 summary here — routing decision, the insight, the executive narrative for the single exec selected in the routing decision (not multiple execs), what never to say, ranked access path, and the Earned Right Test result. This section should be the most specific and researched section in the entire War Room.
+
+If the routing decision is "Not C-suite yet" → state that explicitly, explain why, and describe what the AE needs to build (champion, insight, or warm path) before executive engagement is warranted. Do not generate an executive narrative for a role that was ruled out in routing.
 
 If the Earned Right Test was not passed → state that explicitly here and list what needs to be researched before executive outreach is warranted.
 
@@ -864,18 +917,24 @@ For each draft:
 - **What makes this non-generic:** [One sentence explaining the specific research that grounds this message]
 
 **8b. Warm Intro Brief**
-A forwardable one-paragraph brief for the person making the warm introduction. Written so the connector can paste it directly into an email or Slack message to the executive without editing. Must contain: why the AE is reaching out, what makes it relevant to this executive right now, and a low-friction ask the connector can make on the AE's behalf.
+
+**Conditional generation rules:**
+- If routing decision is "Not C-suite yet": do NOT generate a warm intro brief to an executive. Instead, generate a warm intro brief to the champion or technical buyer. Adjust the language accordingly.
+- If Earned Right Test is NOT passed: the warm intro brief should be framed as a peer conversation or intel exchange, not a sales meeting request. Do not reference executive-level ask.
+- If no warm intro connector exists AND Earned Right Test is NOT passed: state "No warm path identified and Earned Right Test not passed. Executive outreach is blocked. Prioritize champion engagement via Tier 3." Do NOT fall back to Tier 4 direct outreach.
+- If no warm intro connector exists AND Earned Right Test IS passed: state "No warm path identified. Tier 4 direct outreach is available — see Draft 1 above."
+
+**When a warm intro brief IS warranted:**
+A forwardable one-paragraph brief for the person making the warm introduction. Written so the connector can paste it directly into an email or Slack message without editing. Must contain: why the AE is reaching out, what makes it relevant to the target right now, and a low-friction ask the connector can make on the AE's behalf.
 
 Format:
 ```
 [Connector name] — forwarding this because [specific reason it's relevant to them].
 
-[AE name] works with [brief credible description — not a pitch]. They've been tracking [Company] because of [specific signal — the insight from the Earned Right Test]. They're not pitching — they want [specific, low-friction ask, e.g. "15 minutes to share what they're seeing in this space"].
+[AE name] works with [brief credible description — not a pitch]. They've been tracking [Company] because of [specific signal — the insight from the Earned Right Test, or a champion-level pain point if ERT not passed]. They're not pitching — they want [specific, low-friction ask, e.g. "15 minutes to share what they're seeing in this space"].
 
-Happy to make the intro if you think it's worth [exec's] time.
+Happy to make the intro if you think it's worth [target's] time.
 ```
-
-If no warm intro path exists → state that and note which Tier 4 (direct outreach) draft applies instead.
 
 **9. First Call Opening — 60 Seconds**
 The exact spoken script for the first live call. Written to be read out loud, not scanned. Leads with relevance. Earns the next 10 minutes. Ends with an open question.
@@ -912,6 +971,52 @@ Format: `! [Gap] — [specific action to close it]`
 - What are the top 3 priority actions for next week?
 - Has our "Why Now" hypothesis changed based on new information?
 - Is the wedge still correct, or did new intel shift it?
+
+---
+
+## RUN COMPLETION
+
+After delivering the Account War Room, output this completion status. This is not optional.
+
+```
+═══════════════════════════════════════
+ACCOUNTHACK RUN STATUS
+
+STATUS: DONE | DONE_WITH_CONCERNS | INCOMPLETE | BLOCKED
+VERIFICATION SCORE: [X]/10
+EARNED RIGHT TEST: PASSED | NOT YET PASSED
+WARM PATHS EXHAUSTED: YES | NO → [list what's left]
+INTELLIGENCE GAPS: [count] remaining
+UNVERIFIED CLAIMS: [count] — [list top 3 most critical]
+
+RECOMMENDATION: [one sentence — what to do next]
+═══════════════════════════════════════
+```
+
+**Status definitions:**
+- **DONE** — All stages completed. War Room fully populated. Quality gates passed.
+- **DONE_WITH_CONCERNS** — War Room delivered, but with issues: high UNVERIFIED count, low Why Now Score, Earned Right Test not passed, or warm paths not exhausted.
+- **INCOMPLETE** — Run stopped mid-way. Session context below.
+- **BLOCKED** — Cannot proceed. Missing critical input or research dead-end after 3 attempts.
+
+### Session Context (for pause/resume)
+
+If a run is paused or marked INCOMPLETE, output this session context so the AE can resume later:
+
+```
+SESSION CONTEXT — [Company Name]
+Last stage completed: [Stage X]
+Triggers found: [count] ([HIGH count] HIGH)
+Why Now Score: [X]/10
+Warm paths activated: [count]
+Earned Right Test: [status]
+War Room sections populated: [list]
+Intelligence gaps remaining: [count]
+Next stage: [Stage X+1 — name]
+Next action: [the first thing to do when resuming]
+```
+
+When resuming: paste the session context and say "Resume AccountHack on [Company]." The AI picks up where it left off.
 
 ---
 
