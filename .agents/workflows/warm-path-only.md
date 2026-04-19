@@ -7,7 +7,7 @@ description: Find every warm path into a target account — LinkedIn, internal, 
 ## Steps
 
 1. Read the guardrails:
-   - `guardrails/QUALITY_GATES.md` — Stage 1 and Stage 7 checkpoints
+   - `guardrails/QUALITY_GATES.md` — Stage 1 and Stage 6 checkpoints
    - `guardrails/VOICE.md`
    - `guardrails/VERIFICATION.md`
 
@@ -23,12 +23,12 @@ description: Find every warm path into a target account — LinkedIn, internal, 
 
 7. Run Internal Intelligence interrogation (Stage 1 questions + actions).
 
-8. Run Relationship Mapping (Stage 7 questions + actions).
+8. Run Warm Path Activation (Stage 6 questions + actions).
 
 9. Generate the pre-warm engagement sequence.
 
 10. Output the Warm Path Map.
 
-11. Run Stage 1 and Stage 7 checkpoints from `guardrails/QUALITY_GATES.md`.
+11. Run Stage 1 and Stage 6 checkpoints from `guardrails/QUALITY_GATES.md`.
 
 12. Determine: are warm paths exhausted? If not, what's left to try?

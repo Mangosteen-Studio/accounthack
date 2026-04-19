@@ -3,7 +3,7 @@ name: quick-scan
 description: |
   Lightweight 5-minute account snapshot. Company overview, top 3 triggers, top 3 personas,
   and a go/no-go recommendation. Use when the AE wants a fast read on an account before
-  deciding whether to invest time in a full AccountHack run. No War Room, no message drafts.
+  deciding whether to invest time in a full AccountHack run. No Account Brief, no message drafts.
 ---
 
 # Quick Scan — 5-Minute Account Snapshot
@@ -26,7 +26,7 @@ Read and enforce:
 ### Step 1 — Open
 Say exactly:
 
-*"Quick scan mode. Give me the company name and what you're selling. I'll give you a snapshot, the top urgency signals, and the 3 people you'd want to reach — in about 5 minutes."*
+*"Quick scan mode. This is the fastest useful read before you invest time in a full account breakdown. Give me the company name and what you're selling, and I'll give you the snapshot, top urgency signals, and the 3 people you'd want to reach — in about 5 minutes."*
 
 ### Step 2 — Research (fast)
 Run as much as tools allow. Prioritize speed over depth:

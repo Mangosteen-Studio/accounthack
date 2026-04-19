@@ -35,6 +35,8 @@ Any claim that:
 
 **Hard rule:** If you are not sure whether something is verified, it is unverified. Always tag up, never down.
 
+**Final render rule:** In the final Account Brief, Tier 3 claims do not belong in Sections 1-10. Move them to `Intelligence Gaps — Verify Before Outreach` with the claim, why it matters, and the next verification action. This is a rendering rule, not a downgrade of the verification tier.
+
 ---
 
 ## What Must Always Be Verified Before Use
@@ -124,7 +126,7 @@ Total claims: [sum]
 VERIFICATION SCORE: [Verified + (Inferred × 0.5)] / Total × 10
 
 Interpretation:
-8-10: High confidence War Room. Safe to act on.
+8-10: High confidence Account Brief. Safe to act on.
 5-7:  Moderate confidence. Verify top gaps before outreach.
 3-4:  Low confidence. Significant research still needed.
 1-2:  Too many unknowns. Don't outreach yet.

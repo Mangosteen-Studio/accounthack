@@ -2,14 +2,14 @@
 name: warm-path
 description: |
   Map every warm path into a target account — LinkedIn connections, internal intel,
-  customer networks, investor overlap, partner relationships, alumni. Use when the AE
-  wants to find who they know before going cold. Combines LinkedIn Co-Pilot, Pre-Stage
-  company branching, Stage 1, and Stage 7.
+  customer networks, investor overlap, partner relationships, alumni, and pre-warm
+  engagement. Use when the AE wants to find the easiest doors before going cold.
+  Combines LinkedIn Co-Pilot, Pre-Stage company branching, Stage 1, and Stage 6.
 ---
 
 # Warm Path Mapper
 
-Use this skill when the AE wants to exhaust every warm path into a target account before resorting to cold outreach. This combines the LinkedIn Co-Pilot, company context qualifier, internal intelligence (Stage 1), and relationship mapping (Stage 7) into a focused warm-path-only workflow.
+Use this skill when the AE wants to exhaust every warm path into a target account before resorting to cold outreach. This combines the LinkedIn Co-Pilot, company context qualifier, internal intelligence (Stage 1), and Warm Path Activation (Stage 6) into a focused workflow.
 
 ## Required Context
 Before running, collect:
@@ -20,7 +20,7 @@ Before running, collect:
 
 ## Guardrails
 Read and enforce:
-- [QUALITY_GATES.md](../../guardrails/QUALITY_GATES.md) — Stage 1 and Stage 7 checkpoints
+- [QUALITY_GATES.md](../../guardrails/QUALITY_GATES.md) — Stage 1 and Stage 6 checkpoints
 - [VOICE.md](../../guardrails/VOICE.md) — anti-slop rules
 - [VERIFICATION.md](../../guardrails/VERIFICATION.md) — verification discipline
 
@@ -29,7 +29,11 @@ Read and enforce:
 ### Step 1 — Open
 Say exactly:
 
-*"Let's find every warm path into [Company]. First — are you at a startup, growth-stage company, or large enterprise? This changes which warm path assets we check first."*
+*"Let's find the easiest doors into [Company] before you go cold. We’re not starting with blind outbound — we’re starting with the warmest path that’s actually available. First: are you at a startup, growth-stage company, or large enterprise? That changes which warm path assets we check first."*
+
+### Step 1a — Branch examples
+- If the AE says `"We’re a 60-person startup"` → start with investors, founders, advisors, and accelerator paths before anything else.
+- If the AE says `"We’re at a large enterprise"` → start with product footprint, alliances, alumni, and internal relationship surface area.
 
 ### Step 2 — LinkedIn CSV Decision
 Ask:
@@ -38,6 +42,10 @@ Ask:
 
 If yes → provide the exact LinkedIn export instructions from ACCOUNT_HACK.md and wait for the CSV.
 If no → proceed with Sales Nav search strings.
+
+### Step 2a — Branch examples
+- If the AE says `"Yes, I’ll export the CSV"` → pause the rest of the workflow and wait for the paste before moving on.
+- If the AE says `"No, just use Sales Nav"` → continue immediately with manual warm-path searches.
 
 ### Step 3 — LinkedIn CSV Analysis (if provided)
 When the AE pastes the CSV, run the full 5-step analysis immediately:
@@ -88,13 +96,30 @@ Ask the Stage 1 questions:
 
 Generate the internal bat signal message as paste-ready copy.
 
-### Step 6 — Relationship Mapping (Stage 7)
-Ask:
-1. Do any existing customers know someone there?
-2. Have you asked your manager, SE, exec sponsor, CSM?
-3. Shared investors, advisors, board members?
+### Step 5a — Branch examples
+- If the AE says `"We had a closed-lost here already"` → stop and mine the prior contact history before searching for lower-probability paths.
+- If the AE says `"Our partnerships team knows them"` → surface that relationship and draft the intro request immediately.
 
-Generate specific asks for the AE's top 3 champion relationships.
+### Step 6 — Warm Path Activation (Stage 6)
+Ask:
+1. Do you already have any first-degree or second-degree connections into this account or its orbit?
+2. Do any existing customers know someone there?
+3. Have you asked your manager, SE, exec sponsor, or CSM team if they know anyone there?
+4. Are there shared investors, advisors, or board members?
+
+Run this order exactly:
+1. Direct LinkedIn connections
+2. Change agents
+3. Customer-network paths
+4. Investor / board / advisor overlap
+5. Event / conference overlap
+6. Pre-warm engagement
+
+Generate specific asks for the AE's top opportunities in each category.
+
+### Step 6a — Branch examples
+- If the AE says `"We found a first-degree connection to their VP"` → draft the intro request immediately and pause the lower-probability warm-path work.
+- If the AE says `"A customer knows their Head of Ops"` → promote that path above generic LinkedIn outreach and write the exact ask now.
 
 ### Step 7 — Pre-Warm Plan
 Generate the engagement-before-outreach plan:
@@ -142,7 +167,7 @@ COLD OUTREACH RECOMMENDED: YES / NO
 ```
 
 ### Step 9 — Checkpoint
-Run the Stage 1 and Stage 7 checkpoints from QUALITY_GATES.md.
+Run the Stage 1 and Stage 6 checkpoints from QUALITY_GATES.md.
 
 ### Step 10 — Completion
 ```

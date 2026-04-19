@@ -1,32 +1,34 @@
 # AccountHack — Voice & Output Quality Rules
 
-These rules apply to ALL output generated during an AccountHack run: stage responses, War Room sections, message drafts, research actions, and summaries. The AI must self-enforce these rules. The AE should never have to ask for better output.
+These rules apply to ALL output generated during an AccountHack run: stage responses, Account Brief sections, message drafts, research actions, and summaries. The AI must self-enforce these rules. The AE should never have to ask for better output.
 
 ---
 
 ## Anti-Slop Rules
 
-### Banned AI Vocabulary
-Never use these words or phrases in AccountHack output. They are filler. Replace them with specifics or cut them entirely.
+### BANNED PHRASES — never output in any Account Brief, draft, or stage response
+1. leverage
+2. utilize
+3. comprehensive
+4. robust
+5. strategic alignment
+6. holistic
+7. synergy
+8. cutting-edge
+9. best-in-class
+10. seamless integration
+11. drive value
+12. empower
+13. delve
+14. "it's worth noting"
+15. "in today's landscape"
+16. "in the current environment"
+17. "unlock potential"
+18. "at scale" (unless quantified)
+19. "transformation journey"
+20. "meet you where you are"
 
-| Banned | Why | Replace with |
-|---|---|---|
-| leverage | Corporate filler | "use," "apply," or name the specific thing |
-| utilize | Same as "use" but pretentious | "use" |
-| comprehensive | Meaningless without specifics | Name what's included |
-| robust | Means nothing | Describe the specific capability |
-| strategic alignment | Vague | Name the specific initiative and why it connects |
-| holistic | Never specific | Name the parts |
-| synergy / synergistic | Instant credibility loss | Name the specific overlap |
-| cutting-edge | Cliché | Describe what's actually new |
-| best-in-class | Unverifiable | Name a specific advantage |
-| seamless integration | Every vendor says this | Describe the specific integration path |
-| drive value | What value? | Name the specific outcome |
-| empower | Vague | Name what the person can now do |
-| delve / delve into | AI tell | "dig into," "examine," or just do it |
-| it's worth noting | Filler | Just state the thing |
-| in today's landscape | Filler | Name the specific market condition |
-| digital transformation | Unless the company literally uses this phrase | Name the specific initiative |
+If a company or executive used one of these phrases in a source, you can quote it. Do not adopt it as your own voice.
 
 ### The Specificity Test
 Before outputting any claim, hook, or recommendation, ask:
@@ -68,7 +70,7 @@ Message drafts (LinkedIn DMs, emails, intro briefs) must follow these rules:
 
 ## Source Attribution
 
-Every factual claim in the War Room must be attributable. Use these tags:
+Every factual claim in the Account Brief must be attributable. Use these tags:
 
 | Tag | Meaning |
 |---|---|
@@ -83,17 +85,19 @@ Every factual claim in the War Room must be attributable. Use these tags:
 | `[INFERRED]` | Logical inference from verified data (state the basis) |
 | `[UNVERIFIED — confirm before use]` | Cannot be verified in this session |
 
-**The rule:** If a claim has no tag, it shouldn't be in the War Room. Untagged claims are the #1 source of AI hallucination in sales research.
+**The rule:** If a claim has no tag, it shouldn't be in the Account Brief. Untagged claims are the #1 source of AI hallucination in sales research.
 
 ---
 
 ## Output Formatting
 
-### War Room formatting
-- Use the exact section numbers and headers from the War Room template
+### Account Brief formatting
+- Use the exact section numbers and headers from the Account Brief template
 - Use tables for structured data (personas, search queries, account wedge)
 - Use code blocks for copyable content (search queries, paste-ready messages, Slack bat signals)
 - Use ⚡📉📢 emoji tags for trigger urgency, not colored text
+- In final Account Brief Sections 1-10, include verified claims and inline `[INFERRED — based on: ...]` notes only
+- Do not render inline `[UNVERIFIED — confirm before use]` in the Account Brief body; move every Tier 3 item to `Intelligence Gaps — Verify Before Outreach`
 
 ### Stage response formatting
 - Start each stage response with a brief acknowledgment of what the AE said (proves you listened)

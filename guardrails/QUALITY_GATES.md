@@ -16,14 +16,13 @@ If yes — the output is not good enough. Go one level deeper. Find the insight 
 
 ## Stage Checkpoints
 
-### INPUT COLLECTION CHECKPOINT
+### STAGE 0 — ACCOUNT IDENTITY CHECKPOINT
 ```
-☐ Company name is specific (not just "a fintech company")
+☐ Company identity disambiguated (name, HQ, industry confirmed)
 ☐ AE stated what they're selling in concrete terms
-☐ At least one target persona identified by role
-☐ Company size qualifier completed (startup / growth / enterprise)
-☐ LinkedIn CSV decision made (yes, no, or later)
-→ If any ☐ is unchecked: ask the AE before proceeding.
+☐ Initial hypothesis captured (or AE explicitly said they don't have one yet)
+☐ Ambiguous company names resolved before research starts
+→ If any ☐ is unchecked: resolve it before Stage 0.5.
 ```
 
 ### STAGE 0.5 — TRIGGER RADAR CHECKPOINT
@@ -39,10 +38,12 @@ If yes — the output is not good enough. Go one level deeper. Find the insight 
 
 ### STAGE 1 — INTERNAL INTELLIGENCE CHECKPOINT
 ```
+☐ Company size qualifier completed (startup / growth / enterprise)
 ☐ CRM check completed (or AE confirmed no CRM available)
-☐ At least 2 warm path actions from the company-type branch attempted
 ☐ Internal bat signal message drafted as paste-ready copy
 ☐ Executive connection check requested
+☐ Partner / alliance relationship check requested
+☐ Company-type branch activated and the top warm-path assets were identified for Stage 6 prioritization
 ☐ Every claim about prior company contact sourced (CRM record, colleague confirmation, or marked UNVERIFIED)
 → If any ☐ is unchecked: DO NOT proceed to Stage 2.
 ```
@@ -88,71 +89,67 @@ If yes — the output is not good enough. Go one level deeper. Find the insight 
 ### STAGE 5.5 — EXECUTIVE NARRATIVE CHECKPOINT
 ```
 ☐ Executive Route Decision generated with rationale
-☐ Earned Right Test explicitly asked
+☐ Canonical Earned Right Test explicitly asked
 ☐ Earned Right Test result recorded: PASSED or NOT YET PASSED
-☐ If NOT YET PASSED: specific research actions generated (not vague)
-☐ If NOT YET PASSED: NO executive message draft generated (hard stop)
-☐ If PASSED: insight passes three validation questions (specific? connected? non-obvious?)
+☐ If NOT YET PASSED: specific research actions generated (not vague), executive drafts blocked, Tier 4 blocked
+☐ If PASSED: insight is specific to the selected executive
+☐ If PASSED: insight connects directly to the wedge
+☐ If PASSED: insight is non-obvious to a competitor rep who spent 15 minutes on Google
+☐ If PASSED: only the selected executive route is unlocked
 ☐ Access Path ranked with specific actions per tier
 → This is a STOP gate. If the Earned Right Test is not passed, executive outreach is blocked.
 ```
 
-### STAGE 6 — LINKEDIN & CHANGE AGENT CHECKPOINT
+### STAGE 6 — WARM PATH ACTIVATION CHECKPOINT
 ```
-☐ Employee count and trend noted
 ☐ 6 Sales Nav search queries generated as copyable strings
+☐ Direct LinkedIn connection sweep completed
 ☐ Change agent search completed (ex-employees of AE's company at target, and vice versa)
-☐ Persona map built with 3 layers (Economic, Technical, Champion)
-→ If any ☐ is unchecked: DO NOT proceed to Stage 7.
-```
-
-### STAGE 7 — WARM PATH CHECKPOINT
-```
 ☐ Customer network checked (top 3 champions asked or action generated)
 ☐ Investor/advisor overlap checked
 ☐ Industry event overlap checked
 ☐ Pre-warm engagement plan stated (follow, comment, share — once each, not more)
 ☐ All warm paths ranked and actionable
-→ If any ☐ is unchecked: DO NOT proceed to Stage 8.
+→ If any ☐ is unchecked: DO NOT proceed to Stage 7.
 ```
 
-### STAGE 8 — COMPETITIVE INTELLIGENCE CHECKPOINT
+### STAGE 7 — COMPETITIVE INTELLIGENCE CHECKPOINT
 ```
 ☐ Tech stack mapped from at least 2 sources (BuiltWith + job postings, or similar)
 ☐ Competitor presence assessed with evidence (not assumed)
 ☐ Renewal cycle estimated if competitor is in place
 ☐ Partner ecosystem checked for warm path potential
-→ If any ☐ is unchecked: DO NOT proceed to Stage 9.
+→ If any ☐ is unchecked: DO NOT proceed to Stage 8.
 ```
 
-### STAGE 9 — INDUSTRY LANGUAGE CHECKPOINT
+### STAGE 8 — INDUSTRY LANGUAGE CHECKPOINT
 ```
 ☐ AE's vertical experience level assessed (first time / experienced)
 ☐ "One level deeper" content identified — not just the industry name, but specific operational processes
 ☐ At least 1 trade publication or industry conference identified
 ☐ Best-matching customer story identified (or "none available" stated)
-→ If any ☐ is unchecked: DO NOT proceed to Stage 10.
+→ If any ☐ is unchecked: DO NOT proceed to Stage 9.
 ```
 
-### STAGE 10 — PERSONA MESSAGING CHECKPOINT
+### STAGE 9 — PERSONA MESSAGING CHECKPOINT
 ```
 ☐ Messaging differentiated by persona level (C-suite vs. Director vs. End User)
 ☐ Each message hook references a specific research finding (not generic)
 ☐ "What to avoid" listed for each persona
 ☐ Primary outreach target confirmed with the AE
-→ If any ☐ is unchecked: DO NOT proceed to War Room synthesis.
+→ If any ☐ is unchecked: DO NOT proceed to Account Brief synthesis.
 ```
 
 ---
 
-## War Room Final Validation
+## Account Brief Final Validation
 
-Before delivering the Account War Room, run this final check:
+Before delivering the Account Brief, run this final check:
 
 ```
-WAR ROOM QUALITY GATE
+ACCOUNT BRIEF QUALITY GATE
 
-☐ Every section of the War Room is populated (no blank sections)
+☐ Every section of the Account Brief is populated (no blank sections)
 ☐ Company Snapshot is specific to this account (not a Wikipedia summary)
 ☐ Why Now section has at least 1 HIGH urgency trigger (or explains why there are none)
 ☐ Target Personas each have a specific hook (not generic)
@@ -160,13 +157,15 @@ WAR ROOM QUALITY GATE
 ☐ Account Wedge has all four fields populated with specifics
 ☐ Executive Narrative section states Earned Right Test result honestly
 ☐ Message drafts are consistent with Earned Right Test result
-☐ Intelligence Gaps are specific and actionable (not vague categories)
+☐ Sections 1-10 contain no inline `[UNVERIFIED — confirm before use]` tags
+☐ Intelligence Gaps — Verify Before Outreach is specific and actionable (claim, why it matters, next verification action)
 ☐ 30-Day Execution OS has specific actions (not generic tasks)
+☐ Triggers-Based Adjustments block appears directly below the 30-Day Execution OS table
 ☐ UNVERIFIED tag count: [X] claims need verification
 ☐ Competitor Test passed on all message drafts
 
 VERIFICATION SCORE: [X/10]
-(10 = fully verified War Room. 1 = mostly unverified. Be honest.)
+(10 = fully verified Account Brief. 1 = mostly unverified. Be honest.)
 ```
 
 ---
@@ -190,8 +189,10 @@ RECOMMENDATION: [one sentence — what to do next]
 ═══════════════════════════════════════
 ```
 
+For full AccountHack runs, immediately append the machine-parseable JSON sidecar from `ACCOUNT_HACK.md`. All keys are required on every run, including empty arrays and `null` stage fields when the run is complete.
+
 **Status definitions:**
-- **DONE** — All stages completed. War Room fully populated. Quality gates passed.
-- **DONE_WITH_CONCERNS** — War Room delivered, but with issues: high UNVERIFIED count, low Why Now Score, Earned Right Test not passed, or warm paths not exhausted.
+- **DONE** — All stages completed. Account Brief fully populated. Quality gates passed.
+- **DONE_WITH_CONCERNS** — Account Brief delivered, but with issues: high UNVERIFIED count, low Why Now Score, Earned Right Test not passed, or warm paths not exhausted.
 - **INCOMPLETE** — Run stopped mid-way. Session context saved for resumption.
 - **BLOCKED** — Cannot proceed. Missing critical input from the AE, or research dead-end hit after 3 attempts.

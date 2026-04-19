@@ -1,38 +1,39 @@
 ---
 name: account-review
 description: |
-  Score and audit an existing Account War Room. Finds gaps, unverified claims, missing
+  Score and audit an existing Account Brief. Finds gaps, unverified claims, missing
   warm paths, weak messaging, and the overall quality of the intelligence. Use after
   a full AccountHack run to validate quality, or as a manager reviewing an AE's account plan.
 ---
 
-# Account Review — War Room Quality Audit
+# Account Review — Account Brief Quality Audit
 
-Use this skill to audit an existing Account War Room. This is the quality gate that catches sloppy research, generic messaging, unexhausted warm paths, and intelligence gaps before the AE goes into the field.
+Use this skill to audit an existing Account Brief. This is the quality gate that catches sloppy research, generic messaging, unexhausted warm paths, and intelligence gaps before the AE goes into the field.
 
 **Who uses this:**
 - AEs reviewing their own work before outreach
 - Managers reviewing account plans from their team
-- Anyone who has an Account War Room and wants to know: "Is this good enough?"
+- Anyone who has an Account Brief and wants to know: "Is this good enough?"
 
 ## Required Context
-The AE or manager pastes a completed (or partial) Account War Room into the chat.
+The AE or manager pastes a completed (or partial) Account Brief into the chat.
 
 ## Guardrails
-This skill IS the guardrail. It enforces all three guardrail docs:
+This skill IS the guardrail. It enforces the full guardrail stack:
 - [QUALITY_GATES.md](../../guardrails/QUALITY_GATES.md) — run every checkpoint
 - [VOICE.md](../../guardrails/VOICE.md) — check for slop
 - [VERIFICATION.md](../../guardrails/VERIFICATION.md) — count and flag unverified claims
+- [CRITIC.md](../../guardrails/CRITIC.md) — align the final audit with the canonical output rules
 
 ## Workflow
 
 ### Step 1 — Open
 Say exactly:
 
-*"Paste the Account War Room you want me to audit. I'll score it on verification, specificity, warm path coverage, messaging quality, and intelligence gaps. Be ready for honest feedback — a 6/10 War Room beats a confident 3/10 in the field."*
+*"Paste the Account Brief you want me to audit. I’m going to pressure-test it before it goes into the field — verification, specificity, warm-path coverage, executive logic, and execution quality. Be ready for honest feedback — a 6/10 Account Brief beats a confident 3/10 in the field."*
 
 ### Step 2 — Parse & Analyze
-When the War Room is pasted, run the following analysis silently (don't ask questions — just audit):
+When the Account Brief is pasted, run the following analysis silently (don't ask questions — just audit):
 
 **A. Verification Audit**
 - Count every factual claim
@@ -45,20 +46,23 @@ When the War Room is pasted, run the following analysis silently (don't ask ques
 - Check for banned AI vocabulary from VOICE.md
 
 **C. Warm Path Audit**
-- Check: were all tiers of warm paths explored (direct, second-degree, internal, investor, alumni)?
+- Check: were all tiers of Warm Path Activation explored (direct, change agents, customer network, investor/board/advisor, event overlap, pre-warm)?
 - Flag any unexplored warm path categories
 - Determine: is "cold outreach" the recommendation ONLY because warm paths were exhausted, or because they were never tried?
 
 **D. Executive Narrative Audit**
 - Was the Earned Right Test applied? What was the result?
+- Does the executive insight meet the canonical test: specific to the selected executive, connected to the wedge, non-obvious to a competitor rep who spent 15 minutes on Google?
 - Is the executive narrative specific to this person, or generic to the role?
 - Are the message drafts consistent with the Earned Right Test result?
-- Could these messages have been written without the War Room research? If yes, they're too generic.
+- Could these messages have been written without the Account Brief research? If yes, they're too generic.
 
 **E. Intelligence Gaps Audit**
 - Are the listed gaps specific and actionable, or vague categories?
+- Are unverified claims kept out of the main Account Brief body and moved into `Intelligence Gaps — Verify Before Outreach`?
 - Are there obvious gaps NOT listed? (e.g., no competitive intel, no financial data, no hiring analysis)
 - Is the 30-Day Execution OS populated with specific actions or generic tasks?
+- Is the `Triggers-Based Adjustments` block present and specific?
 
 ### Step 3 — Output
 
@@ -100,11 +104,12 @@ EXECUTIVE NARRATIVE SCORE: [X]/10
 
 INTELLIGENCE GAPS SCORE: [X]/10
 ├── Listed gaps are actionable: [YES/NO]
+├── Footer-only unverified rendering: [PASS/FAIL]
 ├── Missing gap categories: [list]
-└── 30-Day Execution OS quality: [Specific actions / Generic tasks]
+└── Execution plan quality: [Specific actions + trigger adjustments / Generic tasks]
 
 ═══════════════════════════════════════
-TOP 5 ACTIONS TO IMPROVE THIS WAR ROOM
+TOP 5 ACTIONS TO IMPROVE THIS ACCOUNT BRIEF
 ═══════════════════════════════════════
 1. [Most impactful action — specific]
 2. [Second action]
@@ -113,7 +118,7 @@ TOP 5 ACTIONS TO IMPROVE THIS WAR ROOM
 5. [Fifth action]
 
 FIELD READINESS: 
-[READY — this War Room is good enough to act on]
+[READY — this Account Brief is good enough to act on]
 [ALMOST — fix the top 2-3 issues first]
 [NOT READY — significant gaps need to be addressed]
 ═══════════════════════════════════════

@@ -4,7 +4,7 @@ description: |
   Deep executive research and outreach strategy for a target account. Maps leadership,
   builds executive narratives, enforces the Earned Right Test, and generates persona-specific
   message drafts. Use when the AE is preparing to contact a specific executive. Runs
-  Stage 5, Stage 5.5, and Stage 10.
+  Stage 5, Stage 5.5, and Stage 9.
 ---
 
 # Leadership Intel & Executive Access
@@ -24,19 +24,23 @@ Recommended but not required:
 
 ## Guardrails
 Read and enforce:
-- [QUALITY_GATES.md](../../guardrails/QUALITY_GATES.md) — Stage 5, Stage 5.5, and Stage 10 checkpoints
+- [QUALITY_GATES.md](../../guardrails/QUALITY_GATES.md) — Stage 5, Stage 5.5, and Stage 9 checkpoints
 - [VOICE.md](../../guardrails/VOICE.md) — anti-slop rules, especially message draft rules
 - [VERIFICATION.md](../../guardrails/VERIFICATION.md) — executive data is the highest-risk category for hallucination
 
 ## Critical Rule
-**The Earned Right Test is a hard stop.** If the AE cannot demonstrate one specific, non-generic insight about the executive's strategic situation, do NOT generate executive message drafts. Generate the research actions to find the insight instead.
+**The canonical Earned Right Test is a hard stop.** Executive outreach is allowed only if the insight is specific to the selected executive, connected to the wedge, and non-obvious to a competitor rep who spent 15 minutes on Google.
 
 ## Workflow
 
 ### Step 1 — Open
 Say exactly:
 
-*"Let's build the executive strategy for [Company]. Who's your primary target — and what do you actually know about them beyond their LinkedIn title? I need specifics: their strategic priorities, what they've said publicly, what keeps them up at night. If you don't have that yet, we find it before we write a single word."*
+*"Let's earn the right to contact the executive at [Company]. We’re not writing a message until we know why this person should actually care. Who's your primary target — and what do you actually know about them beyond their LinkedIn title?"*
+
+### Step 1a — Branch examples
+- If the AE says `"I only know the title"` → go straight into research mode and do not draft messaging yet.
+- If the AE says `"I already have a strong public insight from their keynote"` → carry that into the route decision and canonical Earned Right Test immediately.
 
 ### Step 2 — Leadership Deep Dive (Stage 5)
 For each key executive, generate research actions:
@@ -87,7 +91,12 @@ Apply the routing logic strictly. Route to "Not C-suite yet" if the AE has no cr
 
 *"Give me the one thing you know about this executive's strategic situation — from their earnings call, keynote, LinkedIn post, podcast, or board announcement — that most salespeople calling on this account don't know. One insight that makes your outreach non-generic."*
 
-**If the AE cannot answer:**
+Apply the canonical pass criteria:
+- specific to the selected executive
+- connected directly to the wedge
+- non-obvious to a competitor rep who spent 15 minutes on Google
+
+**If the AE cannot answer, or the insight fails the canonical pass criteria:**
 ```
 EARNED RIGHT TEST: NOT YET PASSED
 
@@ -102,10 +111,14 @@ Executive message drafts are BLOCKED until this test is passed.
 I'll generate champion and technical buyer drafts instead.
 ```
 
-**If the AE has the insight, validate:**
-- Is it specific to THIS executive, or could it apply to any CEO? (If generic → not good enough)
-- Does it connect to what your solution does? (If not → interesting but not an opener)
-- Would a competitor rep know this? (If yes → go deeper)
+**If the AE has the insight and it passes:**
+- Emit `PASSED`
+- Unlock only the selected executive route
+- Continue to the executive narrative for that single route
+
+### Step 4a — Branch examples
+- If the AE says `"The CFO is talking publicly about vendor consolidation, and our wedge is cost control"` → test it against the canonical criteria and, if it passes, unlock only the CFO route.
+- If the AE says `"They’re transforming the business"` → fail it as too generic and generate the next research actions instead of drafting.
 
 ### Step 5 — Executive Narrative (Stage 5.5, Step 3)
 Only if Earned Right Test PASSED. Build the narrative for the routed executive:
@@ -128,7 +141,7 @@ Generate ranked access paths:
 3. **Champion escalation** — bottom-up with escalation script
 4. **Direct outreach** — only if Earned Right Test passed
 
-### Step 7 — Message Drafts (Stage 10 + War Room Section 8)
+### Step 7 — Message Drafts (Stage 9 + Account Brief Section 8)
 
 **If Earned Right Test PASSED:**
 - Draft 1 — Primary Executive Target: 4 sentences max. Opens with insight. No features.
@@ -159,7 +172,7 @@ The complete Stage 5.5 output block as defined in ACCOUNT_HACK.md, including:
 - First Call Opening — 60 Seconds
 
 ### Step 9 — Checkpoints
-Run the Stage 5, Stage 5.5, and Stage 10 checkpoints from QUALITY_GATES.md.
+Run the Stage 5, Stage 5.5, and Stage 9 checkpoints from QUALITY_GATES.md.
 
 ### Step 10 — Completion
 ```

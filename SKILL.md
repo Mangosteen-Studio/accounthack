@@ -3,7 +3,7 @@ name: accounthack
 description: |
   Structured AI-guided interrogation skill for breaking into greenfield accounts.
   Use when the user wants to research a target account, identify urgency signals
-  and warm paths, map stakeholders, and draft persona-specific outreach before outbound.
+  and warm paths, map stakeholders, build an Account Brief, and draft persona-specific outreach before outbound.
 ---
 
 # AccountHack
@@ -31,7 +31,7 @@ When the user's request matches a focused skill, route to it instead of running 
 | "Check urgency," "any triggers," "why now," "is this urgent" | Trigger Radar | [skills/trigger-radar/SKILL.md](./skills/trigger-radar/SKILL.md) |
 | "Find warm paths," "who do I know," "LinkedIn connections," "warm intro" | Warm Path | [skills/warm-path/SKILL.md](./skills/warm-path/SKILL.md) |
 | "Executive research," "leadership deep dive," "exec outreach," "earned right" | Leadership Intel | [skills/leadership-intel/SKILL.md](./skills/leadership-intel/SKILL.md) |
-| "Review this war room," "score my account plan," "audit my research" | Account Review | [skills/account-review/SKILL.md](./skills/account-review/SKILL.md) |
+| "Review this account brief," "score my account plan," "audit my research" | Account Review | [skills/account-review/SKILL.md](./skills/account-review/SKILL.md) |
 | "Run AccountHack," "full run," "hack this account" | Full Run | [ACCOUNT_HACK.md](./ACCOUNT_HACK.md) |
 
 If no specific pattern matches, default to the full run.
@@ -46,4 +46,4 @@ Every skill run must end with:
 ```
 STATUS: DONE | DONE_WITH_CONCERNS | INCOMPLETE | BLOCKED
 ```
-See [QUALITY_GATES.md](./guardrails/QUALITY_GATES.md) for the full Completion Status Protocol.
+For full AccountHack runs, append the JSON sidecar defined in [ACCOUNT_HACK.md](./ACCOUNT_HACK.md) immediately after the human status block. See [QUALITY_GATES.md](./guardrails/QUALITY_GATES.md) for the full Completion Status Protocol.

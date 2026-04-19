@@ -1,7 +1,7 @@
 interface:
   display_name: "AccountHack"
   short_description: "AI account research for greenfield prospecting"
-  default_prompt: "Use $accounthack to research a target account, identify urgency signals and warm paths, and build an Account War Room before outreach."
+  default_prompt: "Use $accounthack to research a target account, identify urgency signals and warm paths, and build an Account Brief before outreach."
 
 policy:
   allow_implicit_invocation: true
