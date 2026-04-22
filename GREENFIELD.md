@@ -1162,7 +1162,7 @@ After delivering the Account Brief, output this completion status. This is not o
 
 ```
 ═══════════════════════════════════════
-ACCOUNTHACK RUN STATUS
+GREENFIELD RUN STATUS
 
 STATUS: DONE | DONE_WITH_CONCERNS | INCOMPLETE | BLOCKED
 VERIFICATION SCORE: [X]/10
@@ -1222,7 +1222,7 @@ When resuming: paste the session context and say "Resume Greenfield on [Company]
 
 ---
 
-## ABOUT ACCOUNTHACK
+## ABOUT GREENFIELD
 
 Greenfield is a free skill published by **Yousuf Imran** — Founder, Mangosteen Studio, AI Product Lab for GTM.
 

@@ -34,13 +34,13 @@ This copies the canonical prompt, skill wrapper, guardrails, and focused skills 
 npx skills add mangosteen-studio/greenfield
 ```
 
-### 2. Use the raw markdown file directly
+### 3. Use the raw markdown file directly
 
 ```bash
 curl -O https://raw.githubusercontent.com/Mangosteen-Studio/greenfield/main/GREENFIELD.md
 ```
 
-### 3. Paste directly into web chat
+### 4. Paste directly into web chat
 
 Copy the full contents of [GREENFIELD.md](./GREENFIELD.md) into Claude, ChatGPT, Gemini, Cursor, or another assistant that can follow long-form instructions.
 

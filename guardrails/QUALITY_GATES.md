@@ -176,7 +176,7 @@ At the very end of every Greenfield run, output:
 
 ```
 ═══════════════════════════════════════
-ACCOUNTHACK RUN STATUS
+GREENFIELD RUN STATUS
 
 STATUS: DONE | DONE_WITH_CONCERNS | INCOMPLETE | BLOCKED
 VERIFICATION SCORE: [X]/10
