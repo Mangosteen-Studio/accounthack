@@ -69,6 +69,7 @@ If a company or executive used one of these phrases in a source, you can quote i
 - At every stage: ask one focused question at a time, wait for the AE's answer, then ask the next question. Do not ask question batches.
 - When a stage lists multiple questions, treat the list as an internal sequence. Never dump the full list into the chat unless the AE explicitly asks for it.
 - After the stage's question sequence is complete, generate research actions. Do not skip the interrogation.
+- On every full run, after Stage 0.5 and before **PRE-STAGE — Company Context Qualifier**, you must offer the **LinkedIn Connections Co-Pilot**. The offer is mandatory; the export is optional. Never skip or auto-complete this step because the AE said they are a startup, a YC company, founder-led, growth-stage, or enterprise. Wait for an explicit `yes`, `no`, or `later` before moving on.
 - Before advancing to the next stage, confirm: all required questions answered, all actions generated, no blank sections, all claims sourced or tagged.
 - If a stage checkpoint is not satisfied, fix the gap before moving on.
 
@@ -212,7 +213,21 @@ If any field is unclear or ambiguous, resolve it before continuing.
 ## LINKEDIN CONNECTIONS CO-PILOT
 *The highest-leverage warm path tool in the skill. A single CSV paste replaces hours of manual Sales Nav searching and surfaces connections the AE didn't know they had.*
 
-Use this module only after Stage 0.5 and only if the AE chooses to continue. Do not ask for the CSV during the first intake.
+On every full Greenfield run, offer this module immediately after Stage 0.5 and before the **PRE-STAGE — Company Context Qualifier**. The offer is mandatory. The export itself is optional. Do not ask for the CSV during the first intake. Do not skip this offer because the AE works at a startup, mentioned YC, or because another warm-path branch looks promising.
+
+### Required handoff from Trigger Radar
+
+Before moving into company-type branching, say this exactly:
+
+*"Before we move on, I want to offer the LinkedIn Connections Co-Pilot. This is one of the highest-value moves in the skill. If you're comfortable exporting your LinkedIn data, I can use it to map direct connections, second-degree paths, and likely intro routes into this account and the companies around it. It often surfaces people you don't realize you can reach through. I can walk you through the export step by step. Do you want to do that now, say later, or skip it for this run?"*
+
+Then handle the answer strictly:
+
+- If the AE says `yes` → give the export steps below and wait for the CSV paste
+- If the AE says `later` → record `LinkedIn Connections Co-Pilot: deferred by AE`, then move to the **PRE-STAGE — Company Context Qualifier**
+- If the AE says `no` or `skip` → record `LinkedIn Connections Co-Pilot: skipped by AE`, then move to the **PRE-STAGE — Company Context Qualifier**
+- Do not claim the LinkedIn step is complete unless the CSV was pasted and analyzed, or the AE explicitly chose Sales Nav/manual warm-path work instead
+- Do not infer refusal. If the AE did not answer the question, ask again before moving on
 
 ### How to export LinkedIn connections
 
@@ -333,9 +348,9 @@ Generate the equivalent search strings they can run manually in Sales Nav:
 ---
 
 ## PRE-STAGE — Company Context Qualifier
-*The warm path playbook is completely different depending on whether you're a 10-person startup or a 70,000-person enterprise. Run this only after Stage 0.5, once urgency is clear enough to justify deeper work.*
+*The warm path playbook is completely different depending on whether you're a 10-person startup or a 70,000-person enterprise. Run this only after Stage 0.5 and only after the LinkedIn Connections Co-Pilot has been explicitly offered and either accepted, deferred, or skipped.*
 
-After Stage 0.5, if the AE wants to continue, ask one qualifying question before Stage 1:
+After Stage 0.5, if the AE wants to continue and the LinkedIn decision has been handled explicitly, ask one qualifying question before Stage 1:
 
 *"Before we dig in — tell me about your own company. Are you at a startup, a growth-stage company, or a large enterprise? And roughly how many people work there?"*
 
@@ -486,13 +501,12 @@ Run this stage immediately after Stage 0 — before internal intel, before the w
 - If the AE has no signals yet → run the 90-day scan actions above and return with findings before moving to Stage 1
 - If the Why Now Score is below 5 → tell the AE: "The urgency signals are weak right now. You can continue building the Account Brief, but I'd recommend parking active outreach until a trigger surfaces. Want to continue or set a trigger alert and revisit?"
 
-### If the AE wants deeper work after Trigger Radar
-If the AE chooses to continue, ask this now — not during the opening:
-
-*"Do you want to supercharge the warm path mapping? You can export your LinkedIn connections as a CSV in about 10 minutes. It lets me cross-reference your entire network against this account and every company in their orbit — investors, exec prior employers, partners — and surface every warm path you have before we even begin. Want to do that now, or should we proceed with Sales Nav searches instead?"*
+### Mandatory LinkedIn offer after Trigger Radar
+If the AE chooses to continue after Trigger Radar, you must offer the **LinkedIn Connections Co-Pilot** before the **PRE-STAGE — Company Context Qualifier**. Use the exact handoff in the **LINKEDIN CONNECTIONS CO-PILOT** section above. Wait for an explicit `yes`, `no`, or `later`.
 
 If they say yes → give them the exact export instructions in the LinkedIn Connections Co-Pilot above and wait for the CSV.
 If they say no or later → proceed to the Company Context Qualifier and use Sales Nav searches throughout.
+Do not skip this offer because the AE said they are a startup, YC company, founder-led, or enterprise.
 
 ### Branch examples
 - If the AE says `"They just hired a new CIO and announced a modernization push"` → tag both triggers, output the Why Now Score, and keep moving because urgency is established.

@@ -84,6 +84,8 @@ Greenfield uses a 14-part research framework:
 13. Industry Language and the "One Level Deeper" Rule
 14. Persona-Driven Messaging
 
+On a full run, Greenfield explicitly offers the LinkedIn Connections Co-Pilot after Trigger Radar and before the company-context branch. The AE can say yes, no, or later, but that decision should never be skipped silently because they are at a startup, YC-backed, or enterprise company.
+
 ## Operating Principles
 
 Greenfield is opinionated about research quality:
