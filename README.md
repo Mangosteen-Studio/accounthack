@@ -44,6 +44,10 @@ curl -O https://raw.githubusercontent.com/Mangosteen-Studio/greenfield/main/GREE
 
 Copy the full contents of [GREENFIELD.md](./GREENFIELD.md) into Claude, ChatGPT, Gemini, Cursor, or another assistant that can follow long-form instructions.
 
+`GREENFIELD.md` is self-contained for web chat and raw-markdown use. It includes the essential one-question-at-a-time rule, verification discipline, banned phrases, message-draft rules, and output-format rules, so web chat users do not need to paste `guardrails/VOICE.md` separately.
+
+Installed paths such as npm and `npx skills add` also include the expanded guardrail files in `guardrails/`, including `VOICE.md`, `QUALITY_GATES.md`, `VERIFICATION.md`, and `CRITIC.md`.
+
 Then prompt:
 
 ```text
@@ -131,6 +135,8 @@ Each skill enforces the same guardrails as the full run.
 ## Guardrails
 
 Greenfield includes a structured guardrail system:
+
+The essential guardrails are embedded in [GREENFIELD.md](./GREENFIELD.md) for copy/paste workflows. The files below are included for installed users and provide expanded guidance for CLI agents and local skill installs.
 
 | Document | Purpose |
 |---|---|
